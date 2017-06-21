@@ -1,0 +1,23 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "The Iron Yard Daily Project: Build a todo list",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rickmurdock/Todo-List.git"
+  },
+  "author": "Rick Murdock",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rickmurdock/Todo-List/issues"
+  },
+  "homepage": "https://github.com/rickmurdock/Todo-List#readme",
+  "dependencies": {
+    "express": "^4.15.3",
+    "mustache-express": "^1.2.4"
+  }
+}
