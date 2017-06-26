@@ -6,7 +6,7 @@ var app = express();
 
 var listData = [{'item': 'eat', 'complete': false}, 
                 {'item': 'sleep', 'complete': false},
-                {'item': 'code', 'complete': true} ];
+                {'item': 'code', 'complete': false} ];
 
 // RENDER ENGINE
 app.engine("mustache", mustacheExpress());
@@ -14,25 +14,21 @@ app.set("views", "./public");
 app.set("view engine", "mustache")
 
 // MIDDLEWARE
+app.use("/", express.static(__dirname + "/public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // ROUTES
-app.use("/",express.static(__dirname + "/public"));
-
 app.get("/", function(req, res){
   res.render("index", {listBox: listData});
 });
 
 app.post('/', function(req, res) {
   var newItem = req.body.newItem;
-  console.log("NEW = ", newItem);
   listData.push({'item': newItem, 'complete': false});
-  console.log("listdate=", listData);
-  res.render("index", {listBox: listData});
+  res.redirect('/');
 });
 
 app.listen(port, function() {
   console.log('Server up and running on port', port);
 });
-
